@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/public/css/style.css" type="text/css">
+  <title>Store</title>
+ </head>
+ <body>
+
+ 	<%- include("blocks/header.ejs") %>
+ 	<div><%- include("blocks/sidebar.ejs") %></div>
+ 	<div>
+ 	<form action="/" method="post">
+ 	<p><label>choose category</label><select name="selectcatt">
+ 	<option selected value="all">all</option>
+    <option value="books">books</option>
+    <option value="shoes">shoes</option>
+    <option value="computers">computers</option>
+    
+   </select>
+   <label>Search</label>
+   <input type="text" name="filt">
+   
+   <label>price</label><select name="selectprice">
+ 	<option selected value="all"></option>
+    <option value="cheap">from cheap to expensive</option>
+    <option value="expensive">from expensive to cheap</option>
+   </select>
+   <button type="submit" name="go1">GO</button></p>
+   
+	</form>
+   </div>
+ 	<div class="d-flex flex-wrap ccontent">
+ <% 
+  	
+  	for (var i = 0; i < products.length; i++) {
+    			
+  %> 
+ 	
+	
+	  	<div class="card mb-4 shadow-sm">
+	  		<img src="/public/img/<%=products[i].image %>" class="img-thumbnail">
+		      <div class="card-header">
+		       
+ 
+		      </div>
+		      <div class="card-body" >
+		      	<form action="./productview" method="post">
+		      		<input type="hidden" name="idd" value="<%=products[i].id%>">
+		        <h1 class="card-title pricing-card-title"><%=products[i].price%><small class="text-muted">грн</small></h1>
+		        <ul class="list-unstyled mt-3 mb-4">
+		        	
+		          <li><%=products[i].name %></li>
+		          <li><%=products[i].description %></li>
+		        </ul>
+		        
+		        <button type="submit" name="go">more information</button>
+		        </form>
+		      </div>
+	    </div>
+		<% 
+			}
+  		%>
+	</div>
+	<%- include("blocks/footer.ejs") %>
+ </body>
+</html>

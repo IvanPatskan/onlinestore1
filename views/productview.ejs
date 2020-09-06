@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/public/css/style.css" type="text/css">
+  <title>My Garden Store</title>
+ </head>
+ <body>
+
+ 	<%- include("blocks/header1.ejs") %>
+ 	<div><%- include("blocks/sidebar.ejs") %></div>
+ 	<div class="d-flex flex-wrap ccontent">
+ 
+ 	
+	
+	  	<div class="card mb-4 shadow-sm">
+	  		<img src="/public/img/<%=products.image %>" class="img-thumbnail">
+		      <div class="card-header">
+		       
+ 
+		      </div>
+		      <div class="card-body">
+		        <h1 class="card-title pricing-card-title"><%=products.price%><small class="text-muted">грн</small></h1>
+		        <ul class="list-unstyled mt-3 mb-4">
+		          
+		          <li><%=products.name %></li>
+		          <li><%=products.description %></li>
+		          
+		        </ul>
+		        
+		      </div>
+	    </div>
+	</div>
+	<%- include("blocks/footer.ejs") %>
+ </body>
+</html>
